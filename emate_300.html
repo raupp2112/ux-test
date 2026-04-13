@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>APPLE EMATE 300 - Interactive Archive</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
+
+        <style>
+            .image-container {
+                height: 75vh;
+            }
+            #sequence-img {
+                height: 90%;
+            }
+
+            /* APPLE EMATE 300 - FRONT VIEW */
+            .group-touchscreen {
+                top: 35%;
+                left: 5%;
+            }
+            .highlight-touchscreen {
+                width: 300px;
+                height: 220px;
+                border-radius: 8px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -80px;
+                left: 340px;
+            }
+
+            .group-armor {
+                top: 20%;
+                right: 5%;
+            }
+            .highlight-armor {
+                width: 120px;
+                height: 320px;
+                border-radius: 30px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -30px;
+                right: 380px;
+            }
+
+            .group-stylus {
+                top: 75%;
+                right: 15%;
+            }
+            .highlight-stylus {
+                width: 260px;
+                height: 25px;
+                border-radius: 12px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -10px;
+                right: 280px;
+            }
+            .stylus-line {
+                width: 120px;
+                position: relative;
+                top: 10px;
+                right: 10px;
+            }
+
+            /* APPLE EMATE 300 - LEFT SIDE */
+            .group-serial {
+                top: 35%;
+                left: 15%;
+            }
+            .highlight-serial {
+                width: 50px;
+                height: 140px;
+                border-radius: 25px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -40px;
+                left: 280px;
+            }
+            .serial-line {
+                width: 160px;
+                position: relative;
+                top: 10px;
+                left: 10px;
+            }
+
+            .group-powerinput {
+                top: 65%;
+                right: 15%;
+            }
+            .highlight-powerinput {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%; /* Round for charging jack */
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -20px;
+                right: 260px;
+            }
+            .powerinput-line {
+                width: 140px;
+                transform: rotate(-15deg);
+                position: relative;
+                top: 10px;
+                right: 10px;
+            }
+
+            /* APPLE EMATE 300 - RIGHT SIDE */
+            .group-pccard {
+                top: 45%;
+                left: 15%;
+            }
+            .highlight-pccard {
+                width: 40px;
+                height: 160px;
+                border-radius: 8px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -60px;
+                left: 280px;
+            }
+            .pccard-line {
+                width: 140px;
+                transform: rotate(10deg);
+                position: relative;
+                top: 15px;
+                left: 10px;
+            }
+
+            .group-audio {
+                top: 22%;
+                right: 20%;
+            }
+            .highlight-audio {
+                width: 35px;
+                height: 35px;
+                border-radius: 50%; /* Round for headphone jack */
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -15px;
+                right: 240px;
+            }
+            .audio-line {
+                width: 120px;
+                transform: rotate(-20deg);
+                position: relative;
+                top: 10px;
+                right: 10px;
+            }
+
+            /* APPLE EMATE 300 - TOP CLOSED */
+            .group-handle {
+                top: 15%;
+                left: 10%;
+            }
+            .highlight-handle {
+                width: 280px;
+                height: 60px;
+                border-radius: 30px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -20px;
+                left: 320px;
+            }
+            .handle-line {
+                width: 180px;
+                transform: rotate(10deg);
+                position: relative;
+                top: 10px;
+                left: 10px;
+            }
+
+            /* Helper classes for specific positions */
+            .text-vertical-right {
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+                position: relative;
+                top: 16px;
+                left: 19px;
+            }
+            .text-vertical-left {
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+                position: relative;
+                top: -35px;
+                left: 13px;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="homepage/home.html" class="btn-ui btn-see-more" style="text-decoration: none">GADGETS</a>
+
+        <section class="scroll-track">
+            <div class="sticky-view">
+                <div id="keywords-list">
+                    <div id="product-title">Apple eMate 300</div>
+                </div>
+
+                <div id="scroll-indicator">
+                    <span>SCROLL</span>
+                    <div class="arrow">↓</div>
+                </div>
+
+                <div class="image-container">
+                    <div id="background-text" style="font-size: 14vw">
+                        DESIGN <br />
+                        PIONEER
+                    </div>
+
+                    <img id="sequence-img" src="images/emate_300/1.png" alt="Apple eMate 300" />
+
+                    <div id="magnifier-lens"></div>
+
+                    <div id="annotations-layer">
+                        <div class="front-annotations" style="display: none">
+                            <div class="anno-group group-touchscreen">
+                                <div class="text-vertical">
+                                    <h2>NEWTON OS TOUCHSCREEN</h2>
+                                    <p>480 x 320 grayscale LCD / Backlit pen-based input</p>
+                                </div>
+                                <div class="line-diagonal left-line"></div>
+                                <div class="highlight highlight-touchscreen"></div>
+                            </div>
+
+                            <div class="anno-group group-armor">
+                                <div class="highlight highlight-armor"></div>
+                                <div class="line-diagonal right-line"></div>
+                                <div class="text-horizontal">
+                                    <h2>TRANSLUCENT ARMOR</h2>
+                                    <p>High-impact polycarbonate / iBook G3 precursor</p>
+                                </div>
+                            </div>
+
+                            <div class="anno-group group-stylus">
+                                <div class="highlight highlight-stylus"></div>
+                                <div class="line-straight stylus-line"></div>
+                                <div class="text-vertical-right">
+                                    <h2>INTEGRATED STYLUS</h2>
+                                    <p>Built-in dock / Ergonomic stylus for sketching</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="left-annotations" style="display: none">
+                            <div class="anno-group group-serial">
+                                <div class="text-horizontal">
+                                    <h2>SERIAL CONNECTIVITY</h2>
+                                    <p>Hidden Newton Interconnect / AppleTalk support</p>
+                                </div>
+                                <div class="line-straight serial-line"></div>
+                                <div class="highlight highlight-serial"></div>
+                            </div>
+
+                            <div class="anno-group group-powerinput">
+                                <div class="highlight highlight-powerinput"></div>
+                                <div class="line-diagonal powerinput-line"></div>
+                                <div class="text-vertical-right">
+                                    <h2>POWER INPUT</h2>
+                                    <p>DC jack / Built-in rechargeable battery</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right-annotations" style="display: none">
+                            <div class="anno-group group-pccard">
+                                <div class="text-vertical-left">
+                                    <h2>PC CARD EXPANSION</h2>
+                                    <p>Type I/II PCMCIA slot / Memory & modem upgrades</p>
+                                </div>
+                                <div class="line-diagonal pccard-line"></div>
+                                <div class="highlight highlight-pccard"></div>
+                            </div>
+
+                            <div class="anno-group group-audio">
+                                <div class="highlight highlight-audio"></div>
+                                <div class="line-diagonal audio-line"></div>
+                                <div class="text-horizontal">
+                                    <h2>AUDIO JACK</h2>
+                                    <p>3.5mm stereo output / Educational audio software</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="top-annotations" style="display: none">
+                            <div class="anno-group group-handle">
+                                <div class="text-horizontal">
+                                    <h2>INTEGRATED HANDLE</h2>
+                                    <p>Built-in carrying grip / Designed for classroom mobility</p>
+                                </div>
+                                <div class="line-diagonal handle-line"></div>
+                                <div class="highlight highlight-handle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="info-toggle-btn" class="btn-ui btn-icon btn-info">i</button>
+                <button class="btn-ui btn-icon btn-video">&#9658;</button>
+
+                <div id="video-overlay">
+                    <iframe
+                        id="main-video"
+                        src="https://www.youtube.com/embed/zoQO4DyCn4k"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="specs-section">
+            <table class="specs-table">
+                <tbody>
+                    <tr>
+                        <td rowspan="2" class="col-category cat-id">Identification</td>
+                        <td class="col-name top-line line-model">Model / Reference</td>
+                        <td class="col-value top-line line-model">eMate 300 (Newton Family)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-date">Release date</td>
+                        <td class="col-value line-date">March 7, 1997</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-physical">Physical & materials</td>
+                        <td class="col-name line-dim">Dimensions (H x W x D)</td>
+                        <td class="col-value line-dim">11.4 x 12.0 x 2.1 in (29 x 30.5 x 5.3 cm)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-mass">Mass / Weight</td>
+                        <td class="col-value line-mass">4.0 lbs (1.8 kg)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-housing">Housing Composition</td>
+                        <td class="col-value line-housing">Translucent dark green & black high-impact polycarbonate</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-display">Display</td>
+                        <td class="col-name line-panel">Panel type</td>
+                        <td class="col-value line-panel">Grayscale LCD Touchscreen with Backlight</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-res">Resolution</td>
+                        <td class="col-value line-res">480 x 320 pixels</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-back">Input Method</td>
+                        <td class="col-value line-back">Resistive touch (Stylus / Pen-based)</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-hardware">Hardware</td>
+                        <td class="col-name line-proc">Processor</td>
+                        <td class="col-value line-proc">ARM 710a RISC @ 25 MHz</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-ram">Memory (RAM/ROM)</td>
+                        <td class="col-value line-ram">3 MB RAM (1MB DRAM, 2MB Flash) / 8 MB ROM</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-hdd">Operating System</td>
+                        <td class="col-value line-hdd">Newton OS 2.1</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" class="col-category cat-interface">Interface</td>
+                        <td class="col-name line-mech">Peripherals</td>
+                        <td class="col-value line-mech">60-key keyboard, Integrated Stylus</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-conn">Connectivity</td>
+                        <td class="col-value line-conn">Newton Interconnect, IrDA (Infrared), PCMCIA Slot</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" class="col-category cat-power">Power</td>
+                        <td class="col-name line-audio">Battery Type</td>
+                        <td class="col-value line-audio">Built-in rechargeable NiMH</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-cell">Nominal Runtime</td>
+                        <td class="col-value line-cell">Up to 28 hours of continuous use</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="explore-section">
+            <h3 class="explore-title">Explore Collection</h3>
+            <div class="explore-grid">
+                <a href="olpc_xo1.html" class="explore-card">
+                    <div class="card-image-wrapper">
+                        <img src="images/olpc_xo1/1.png" alt="OLPC XO-1 Laptop" style="transform: scale(1.2)" />
+                    </div>
+                    <div class="card-info">
+                        <h4>OLPC XO-1</h4>
+                        <p class="card-year">2007</p>
+                    </div>
+                </a>
+
+                <a href="simple_objects/ipod_shuffle_3g.html" class="explore-card">
+                    <div class="card-image-wrapper">
+                        <img
+                            src="images/simple_objects/14_ipod_shuffle_3g/front_14.png"
+                            alt="Apple iPod shuffle 3G"
+                            style="transform: scale(1.1)" />
+                    </div>
+                    <div class="card-info">
+                        <h4>Apple iPod shuffle 3G</h4>
+                        <p class="card-year">2009</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <script src="scripts/script_emate_300.js"></script>
+    </body>
+</html>

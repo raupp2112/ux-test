@@ -1,0 +1,604 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>OLPC XO-1 - Interactive Archive</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
+        <style>
+            /* 1. Give more height to the general container */
+            .image-container {
+                height: 85vh;
+            }
+
+            /* 2. Force the image to be larger and move it */
+            #sequence-img {
+                height: 100%;
+                max-height: none;
+                transform: scale(1.1) translateY(-67px);
+            }
+
+            /* OLPC XO-1 - FRAME 1 (LOGO) */
+            .group-logo {
+                top: 55%;
+                left: 28%;
+            }
+            .highlight-logo {
+                width: 146px;
+                height: 205px;
+                border-radius: 20px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -14px;
+                left: 100px;
+            }
+            .logo-line {
+                width: 80px;
+                transform: rotate(-45deg);
+                position: relative;
+                top: 53px;
+                left: 33px;
+            }
+            .group-logo .text-horizontal {
+                width: 327px; /* Max width before line break */
+                margin-top: 211px; /* Adjusts text block vertically */
+                margin-left: -157px; /* Separates text from the blue line */
+            }
+            .group-logo h2 {
+                font-size: 1.4rem;
+            }
+            .group-logo p {
+                font-size: 0.9rem;
+            }
+
+            /* OLPC XO-1 - CUSTOM HANDLE (Frame 1) */
+            .group-handle-olpc {
+                top: 15%;
+                left: 10%;
+            }
+            .highlight-handle-olpc {
+                width: 431px;
+                height: 60px;
+                border-radius: 30px; /* Very rounded borders for the handle */
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 29px;
+                left: 91px;
+            }
+            .handle-line-olpc {
+                width: 104px;
+                transform: rotate(0deg);
+                position: relative;
+                top: -64px;
+                left: -140px;
+            }
+            .group-handle-olpc .text-vertical {
+                width: 335px; /* Wider block to prevent line breaks */
+                transform: rotate(90deg);
+                margin-top: 184px; /* Move it up slightly */
+                margin-left: -206px; /* Increase separation from the line */
+            }
+            .group-handle-olpc h2 {
+                font-size: 1.6rem; /* Default is usually 1.4rem or 1.2rem */
+                font-weight: 809;
+                letter-spacing: 1px;
+            }
+            .group-handle-olpc p {
+                font-size: 0.9rem;
+                line-height: 1.4;
+                opacity: 0.8; /* Slightly dimmer */
+            }
+
+            /* OLPC XO-1 - FRAME 4 (LEFT SIDE) */
+            .group-latch {
+                top: 25%;
+                left: 15%;
+            }
+            .highlight-latch {
+                width: 64px;
+                height: 210px;
+                border-radius: 12px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 345px;
+                left: 241px;
+            }
+            .latch-line {
+                width: 76px;
+                position: relative;
+                top: 206px;
+                left: -355px;
+            }
+            .group-latch .text-horizontal {
+                width: 262px;
+                margin-top: 426px;
+                margin-left: 397px;
+            }
+            .group-latch h2 {
+                font-size: 1.4rem;
+            }
+            .group-latch p {
+                font-size: 0.9rem;
+            }
+
+            .group-jack-olpc {
+                top: 26%;
+                left: 24%;
+                transform: rotate(90deg);
+            }
+            .highlight-jack-olpc {
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 41px;
+                left: 201px;
+            }
+            .jack-line-olpc {
+                width: 103px; /* Always positive */
+                transform: rotate(90deg);
+                position: relative;
+                top: 7px;
+                right: -169px; /* Play with right or left to move the whole line */
+            }
+            .group-jack-olpc .text-vertical-right {
+                width: 200px;
+                top: 176px;
+                left: 101px; /* If text is rotated due to the group and you want it straight, uncomment this: transform: rotate(-90deg); */
+            }
+            .group-jack-olpc h2 {
+                font-size: 1.4rem;
+            }
+            .group-jack-olpc p {
+                font-size: 0.9rem;
+            }
+
+            /* OLPC XO-1 - FRAME 7 (BOTTOM) */
+            .group-battery {
+                top: 40%;
+                left: 15%;
+            }
+            .highlight-battery {
+                width: 545px;
+                height: 117px;
+                border-radius: 8px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -93px;
+                left: 5px;
+            }
+            .battery-line {
+                width: 66px;
+                transform: rotate(90deg);
+                position: relative;
+                top: -150px;
+                left: -301px;
+            }
+            .group-battery .text-vertical-left {
+                width: 260px;
+                margin-top: 93px;
+                margin-left: 142px;
+                transform: rotate(-90deg);
+            }
+            .group-battery h2 {
+                font-size: 1.5rem;
+            }
+            .group-battery p {
+                font-size: 0.95rem;
+            }
+
+            /* OLPC XO-1 - FRAME 15 (FRONT) */
+            .group-keyboard {
+                top: 75%;
+                left: 5%;
+            }
+            .highlight-keyboard {
+                width: 459px;
+                height: 55px;
+                border-radius: 8px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 6px;
+                left: 120px;
+            }
+            .keyboard-line {
+                width: 48px;
+                transform: rotate(0deg);
+                position: relative;
+                top: 30px;
+                left: -185px;
+            }
+
+            .group-gamepad {
+                top: 23%;
+                right: -15%;
+            }
+            .highlight-gamepad {
+                width: 413px;
+                height: 47px;
+                border-radius: 12px;
+                background-color: rgba(0, 168, 255, 0.2);
+                transform: rotate(0.75deg);
+                top: 271px;
+                right: 307px;
+            }
+            .gamepad-line {
+                width: 73px;
+                position: relative;
+                top: 151px;
+                right: -20px;
+            }
+
+            .group-keyboard .text-horizontal {
+                width: 451px;
+                margin-top: -334px;
+                margin-left: -192px;
+                transform: rotate(-90deg);
+            }
+            .group-keyboard h2 {
+                font-size: 1.8rem;
+            }
+            .group-keyboard p {
+                font-size: 0.9rem;
+            }
+
+            .group-gamepad .text-vertical-right {
+                width: 240px;
+                margin-top: 5px;
+                margin-right: 15px;
+            }
+            .group-gamepad h2 {
+                font-size: 1.4rem;
+            }
+            .group-gamepad p {
+                font-size: 0.9rem;
+            }
+
+            /* OLPC XO-1 - FRAME 19 (SIDE PROFILE) */
+            .group-hinge {
+                top: 65%;
+                left: 20%;
+            }
+            .highlight-hinge {
+                width: 89px;
+                height: 64px;
+                border-radius: 12px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 11px;
+                left: 185px;
+            }
+            .hinge-line {
+                width: 45px;
+                transform: rotate(25deg);
+                position: relative;
+                top: -10px;
+                left: -155px;
+            }
+
+            .group-ports {
+                top: 45%;
+                right: 15%;
+            }
+            .highlight-ports {
+                width: 51px;
+                height: 88px;
+                border-radius: 8px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -36px;
+                right: 239px;
+            }
+            .ports-line {
+                width: 59px;
+                transform: rotate(66deg);
+                position: relative;
+                top: -1px;
+                right: -15px;
+            }
+
+            .group-hinge .text-vertical-left {
+                width: 230px;
+                margin-top: -186px;
+                margin-left: 68px;
+            }
+            .group-hinge h2 {
+                font-size: 1.4rem;
+            }
+            .group-hinge p {
+                font-size: 0.9rem;
+            }
+
+            .group-ports .text-horizontal {
+                width: 284px;
+                margin-top: 99px;
+                margin-right: -69px; /* Being horizontal to the right, a negative value brings it closer to the line */
+            }
+            .group-ports h2 {
+                font-size: 1.4rem;
+            }
+            .group-ports p {
+                font-size: 0.9rem;
+            }
+
+            /* OLPC XO-1 - FRAME 23 (REAR) */
+            .group-antennas {
+                top: 15%;
+                left: 10%;
+            }
+            .highlight-antennas {
+                width: 506px;
+                height: 195px;
+                border-radius: 20px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -16px;
+                left: 56px;
+            }
+            .antennas-line {
+                width: 79px;
+                transform: rotate(56deg);
+                position: relative;
+                top: -77px;
+                left: -253px;
+            }
+            .group-antennas .text-horizontal {
+                width: 378px;
+                margin-top: 316px;
+                margin-left: 418px;
+                transform: rotate(90deg);
+            }
+            .group-antennas h2 {
+                font-size: 1.6rem;
+                letter-spacing: 1px;
+            }
+            .group-antennas p {
+                font-size: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="homepage/home.html" class="btn-ui btn-see-more" style="text-decoration: none">GADGETS</a>
+        <section class="scroll-track">
+            <div class="sticky-view">
+                <div id="keywords-list">
+                    <div id="product-title">OLPC XO-1</div>
+                </div>
+
+                <div id="scroll-indicator">
+                    <span>SCROLL</span>
+                    <div class="arrow">↓</div>
+                </div>
+
+                <div class="image-container">
+                    <div id="background-text" style="font-size: 14vw">
+                        ONE LAPTOP <br />
+                        PER CHILD
+                    </div>
+
+                    <img id="sequence-img" src="images/olpc_xo1/1.png" alt="OLPC XO-1 Laptop" />
+                    <div id="magnifier-lens"></div>
+
+                    <div id="annotations-layer">
+                        <div class="top-annotations" style="display: none">
+                            <div class="anno-group group-handle-olpc">
+                                <div class="text-vertical">
+                                    <h2>CARRYING HANDLE</h2>
+                                    <p>Built for children / Highly portable</p>
+                                </div>
+                                <div class="line-diagonal handle-line-olpc"></div>
+                                <div class="highlight highlight-handle-olpc"></div>
+                            </div>
+
+                            <div class="anno-group group-logo">
+                                <div class="highlight highlight-logo"></div>
+                                <div class="line-diagonal logo-line"></div>
+                                <div class="text-horizontal">
+                                    <h2>XO LOGO</h2>
+                                    <p>Represents a child / Colors identify mesh nodes</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="left-annotations" style="display: none">
+                            <div class="anno-group group-latch">
+                                <div class="text-horizontal">
+                                    <h2>ANTENNA LATCH</h2>
+                                    <p>Rabbit ears secure the clamshell shut</p>
+                                </div>
+                                <div class="line-straight latch-line"></div>
+                                <div class="highlight highlight-latch"></div>
+                            </div>
+                            <div class="anno-group group-jack-olpc">
+                                <div class="highlight highlight-jack-olpc"></div>
+                                <div class="line-diagonal jack-line-olpc"></div>
+                                <div class="text-vertical-right">
+                                    <h2>POWER CHARGE</h2>
+                                    <p>DC input for standard or solar charging</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bottom-annotations" style="display: none">
+                            <div class="anno-group group-battery">
+                                <div class="text-vertical-left">
+                                    <h2>REMOVABLE BATTERY</h2>
+                                    <p>LiFePO4 chemistry / 2000 recharge cycles</p>
+                                </div>
+                                <div class="line-diagonal battery-line"></div>
+                                <div class="highlight highlight-battery"></div>
+                            </div>
+                        </div>
+
+                        <div class="front-open-annotations" style="display: none">
+                            <div class="anno-group group-keyboard">
+                                <div class="text-horizontal">
+                                    <h2>MEMBRANE KEYBOARD</h2>
+                                    <p>Dust and water-resistant / Rubberized keys</p>
+                                </div>
+                                <div class="line-diagonal keyboard-line"></div>
+                                <div class="highlight highlight-keyboard"></div>
+                            </div>
+                            <div class="anno-group group-gamepad">
+                                <div class="highlight highlight-gamepad"></div>
+                                <div class="line-straight gamepad-line"></div>
+                                <div class="text-vertical-right">
+                                    <h2>GAMEPAD CONTROLS</h2>
+                                    <p>D-pad and buttons for e-book & gaming</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="side-open-annotations" style="display: none">
+                            <div class="anno-group group-hinge">
+                                <div class="text-vertical-left">
+                                    <h2>SWIVEL HINGE</h2>
+                                    <p>Transforms into a flat e-book reader</p>
+                                </div>
+                                <div class="line-diagonal hinge-line"></div>
+                                <div class="highlight highlight-hinge"></div>
+                            </div>
+                            <div class="anno-group group-ports">
+                                <div class="highlight highlight-ports"></div>
+                                <div class="line-diagonal ports-line"></div>
+                                <div class="text-horizontal">
+                                    <h2>PROTECTED I/O</h2>
+                                    <p>USB and SD ports hidden behind the screen</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="back-open-annotations" style="display: none">
+                            <div class="anno-group group-antennas">
+                                <div class="text-horizontal">
+                                    <h2>RABBIT EAR ANTENNAS</h2>
+                                    <p>802.11s Mesh Networking / Long-range Wi-Fi</p>
+                                </div>
+                                <div class="line-diagonal antennas-line"></div>
+                                <div class="highlight highlight-antennas"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="info-toggle-btn" class="btn-ui btn-icon btn-info">i</button>
+                <button class="btn-ui btn-icon btn-video">&#9658;</button>
+
+                <div id="video-overlay">
+                    <iframe
+                        id="main-video"
+                        src="https://www.youtube.com/embed/aqvQX6vzpcM"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="specs-section">
+            <table class="specs-table">
+                <tbody>
+                    <tr>
+                        <td rowspan="2" class="col-category cat-id">Identification</td>
+                        <td class="col-name top-line line-model">Model / Reference</td>
+                        <td class="col-value top-line line-model">OLPC XO-1 ($100 Laptop)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-date">Release date</td>
+                        <td class="col-value line-date">November 2007</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-physical">Physical & materials</td>
+                        <td class="col-name line-dim">Dimensions (H x W x D)</td>
+                        <td class="col-value line-dim">242 × 228 × 32 mm</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-mass">Mass / Weight</td>
+                        <td class="col-value line-mass">1.45 kg (with LiFePO4 battery)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-housing">Housing Composition</td>
+                        <td class="col-value line-housing">Green & White high-impact, dirt-resistant ABS plastic</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-display">Display</td>
+                        <td class="col-name line-panel">Panel type</td>
+                        <td class="col-value line-panel">Dual-mode TFT LCD (Color transmissive & B/W reflective)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-res">Resolution</td>
+                        <td class="col-value line-res">1200 × 900 pixels (200 dpi)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-back">Screen Size</td>
+                        <td class="col-value line-back">7.5-inch diagonal</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-hardware">Hardware</td>
+                        <td class="col-name line-proc">Processor</td>
+                        <td class="col-value line-proc">AMD Geode LX-700 @ 433 MHz</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-ram">Memory (RAM)</td>
+                        <td class="col-value line-ram">256 MB DRAM</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-hdd">Storage Drive</td>
+                        <td class="col-value line-hdd">1 GB SLC NAND Flash memory (no moving parts)</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" class="col-category cat-interface">Interface</td>
+                        <td class="col-name line-mech">Input Mechanism</td>
+                        <td class="col-value line-mech">Rubber membrane keyboard, ALPS touchpad, Gamepad</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-conn">Connectivity</td>
+                        <td class="col-value line-conn">3x USB 2.0, SD Card Slot, 802.11b/g/s Wi-Fi (Mesh)</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" class="col-category cat-power">Power</td>
+                        <td class="col-name line-audio">Battery Type</td>
+                        <td class="col-value line-audio">Removable LiFePO4 / NiMH (high durability)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-cell">Nominal Runtime</td>
+                        <td class="col-value line-cell">Up to 12 hours (e-book mode)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="explore-section">
+            <h3 class="explore-title">Explore Collection</h3>
+            <div class="explore-grid">
+                <a href="emate_300.html" class="explore-card">
+                    <div class="card-image-wrapper">
+                        <img
+                            src="images/emate_300/1.png"
+                            alt="Apple eMate 300"
+                            style="transform: scale(1.5) translate(0px, -10px)" />
+                    </div>
+                    <div class="card-info">
+                        <h4>Apple eMate 300</h4>
+                        <p class="card-year">1997</p>
+                    </div>
+                </a>
+
+                <a href="simple_objects/apple_m7332.html" class="explore-card">
+                    <div class="card-image-wrapper">
+                        <img
+                            src="images/simple_objects/15_apple_m7332/front_15.png"
+                            alt="Apple Yo-yo Adapter"
+                            style="transform: scale(1.1)" />
+                    </div>
+                    <div class="card-info">
+                        <h4>Apple M7332 Adapter</h4>
+                        <p class="card-year">1999</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <script src="scripts/script_olpc_xo1.js"></script>
+    </body>
+</html>

@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SONY WATCHMAN - Interactive Archive</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
+
+        <style>
+            /* =================================================================
+       GENERAL LAYOUT & OVERRIDES
+       ================================================================= */
+            .image-container {
+                height: 85vh;
+            }
+
+            #sequence-img {
+                height: 100%;
+                max-height: none;
+                transform: scale(1.1) translateY(-67px);
+            }
+
+            /* Professor: All individual annotation elements are now separated 
+       for granular control over position, rotation, and scale. */
+
+            /* =================================================================
+       FRONT VIEW - SPEAKER
+       ================================================================= */
+            .group-speaker {
+                top: 84%;
+                right: -14%;
+            } /* Group Base */
+
+            .highlight-speaker {
+                top: -86px;
+                right: 435px;
+                width: 94px;
+                height: 89px;
+                border-radius: 8px;
+                transform: rotate(0deg); /* Adjust rotation here */
+            }
+            .speaker-line {
+                top: 20px;
+                right: 350px;
+                width: 90px;
+                transform: rotate(45deg); /* Adjust rotation here */
+            }
+            .speaker-text-box {
+                position: absolute;
+
+                /* Eje Y (Arriba / Abajo) */
+                top: 46px; /* Positivo = mueve hacia abajo | Negativo (ej. -50px) = mueve hacia arriba */
+
+                /* Eje X (Izquierda / Derecha) */
+                left: 100px; /* Positivo = mueve hacia la derecha | Negativo (ej. -100px) = mueve a la izq. */
+
+                transform: rotate(0deg);
+            }
+            .speaker-text-box h2 {
+                font-size: 18px;
+            } /* Adjust font size here */
+
+            /* =================================================================
+       REAR VIEW - BATTERY & WARNING
+       ================================================================= */
+            /* Battery Compartment */
+            .group-battery {
+                top: 60%;
+                left: 10%;
+            }
+            .highlight-battery {
+                top: -50px;
+                left: 240px;
+                width: 140px;
+                height: 200px;
+                transform: rotate(0deg);
+            }
+            .battery-line {
+                top: 30px;
+                left: 10px;
+                width: 120px;
+                transform: rotate(15deg);
+            }
+            .battery-text-box {
+                position: absolute;
+                top: -35px;
+                left: 13px;
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+            }
+
+            /* High Voltage Warning */
+            .group-warning {
+                top: 25%;
+                right: 10%;
+            }
+            .highlight-warning {
+                top: -20px;
+                right: 260px;
+                width: 160px;
+                height: 70px;
+                transform: rotate(0deg);
+            }
+            .warning-line {
+                top: 10px;
+                right: 10px;
+                width: 140px;
+                transform: rotate(-15deg);
+            }
+            .warning-text-box {
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: rotate(0deg);
+            }
+
+            /* =================================================================
+       RIGHT SIDE - TUNER & CONTROLS
+       ================================================================= */
+            /* Analog Tuner */
+            .group-tuner {
+                top: 30%;
+                left: 5%;
+            }
+            .highlight-tuner {
+                top: -20px;
+                left: 280px;
+                width: 40px;
+                height: 120px;
+                transform: rotate(0deg);
+            }
+            .tuner-line {
+                top: 10px;
+                left: 10px;
+                width: 180px;
+                transform: rotate(0deg);
+            }
+            .tuner-text-box {
+                position: absolute;
+                top: 0;
+                left: 0;
+                transform: rotate(0deg);
+            }
+
+            /* Control Switches */
+            .group-controls {
+                top: 60%;
+                right: 5%;
+            }
+            .highlight-controls {
+                top: -20px;
+                right: 280px;
+                width: 40px;
+                height: 100px;
+                transform: rotate(0deg);
+            }
+            .controls-line {
+                top: 20px;
+                right: 10px;
+                width: 180px;
+                transform: rotate(-10deg);
+            }
+            .controls-text-box {
+                position: absolute;
+                top: 16px;
+                right: 19px;
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+            }
+
+            /* =================================================================
+       LEFT SIDE - ANTENNA & I/O
+       ================================================================= */
+            /* Telescopic Antenna */
+            .group-antenna {
+                top: 20%;
+                right: 5%;
+            }
+            .highlight-antenna {
+                top: -100px;
+                right: 320px;
+                width: 20px;
+                height: 280px;
+                transform: rotate(0deg);
+            }
+            .antenna-line {
+                top: 10px;
+                right: 10px;
+                width: 200px;
+                transform: rotate(0deg);
+            }
+            .antenna-text-box {
+                position: absolute;
+                top: 0;
+                right: 0;
+                transform: rotate(0deg);
+            }
+
+            /* External I/O Ports */
+            .group-io {
+                top: 75%;
+                left: 5%;
+            }
+            .highlight-io {
+                top: -30px;
+                left: 280px;
+                width: 50px;
+                height: 90px;
+                transform: rotate(0deg);
+            }
+            .io-line {
+                top: 15px;
+                left: 10px;
+                width: 160px;
+                transform: rotate(15deg);
+            }
+            .io-text-box {
+                position: absolute;
+                top: 16px;
+                left: 19px;
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+            }
+        </style>
+    </head>
+    <body>
+        <a href="homepage/home.html" class="btn-ui btn-see-more" style="text-decoration: none">GADGETS</a>
+        <section class="scroll-track">
+            <div class="sticky-view">
+                <div id="keywords-list">
+                    <div id="product-title">Sony Watchman</div>
+                </div>
+
+                <div id="scroll-indicator">
+                    <span>SCROLL</span>
+                    <div class="arrow">↓</div>
+                </div>
+
+                <div class="image-container">
+                    <div id="background-text" style="font-size: 14vw">
+                        POCKET <br />
+                        TELEVISION
+                    </div>
+
+                    <img id="sequence-img" src="images/sony_watchman/1.png" alt="Sony Watchman" />
+                    <div id="magnifier-lens"></div>
+
+                    <div id="annotations-layer">
+                        <div class="front-annotations" style="display: none">
+                            <div class="anno-group group-screen">
+                                <div class="text-vertical">
+                                    <h2>FLAT CRT DISPLAY</h2>
+                                    <p>2-inch monochrome / Parallel electron gun</p>
+                                </div>
+                                <div class="line-diagonal left-line"></div>
+                                <div class="highlight highlight-screen"></div>
+                            </div>
+
+                            <div class="anno-group group-speaker">
+                                <div class="highlight highlight-speaker"></div>
+                                <div class="line-diagonal right-line"></div>
+                                <div class="text-horizontal">
+                                    <h2>INTEGRATED SPEAKER</h2>
+                                    <p>Front-firing dynamic audio output</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rear-annotations" style="display: none">
+                            <div class="anno-group group-battery">
+                                <div class="text-vertical-left">
+                                    <h2>POWER COMPARTMENT</h2>
+                                    <p>4x AA alkaline battery door</p>
+                                </div>
+                                <div class="line-diagonal battery-line"></div>
+                                <div class="highlight highlight-battery"></div>
+                            </div>
+
+                            <div class="anno-group group-warning">
+                                <div class="highlight highlight-warning"></div>
+                                <div class="line-diagonal warning-line"></div>
+                                <div class="text-horizontal">
+                                    <h2>CRT HIGH VOLTAGE</h2>
+                                    <p>Internal flyback transformer warning</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="right-annotations" style="display: none">
+                            <div class="anno-group group-tuner">
+                                <div class="text-horizontal">
+                                    <h2>ANALOG TUNER</h2>
+                                    <p>VHF/UHF mechanical dial selection</p>
+                                </div>
+                                <div class="line-straight tuner-line"></div>
+                                <div class="highlight highlight-tuner"></div>
+                            </div>
+
+                            <div class="anno-group group-controls">
+                                <div class="highlight highlight-controls"></div>
+                                <div class="line-diagonal controls-line"></div>
+                                <div class="text-vertical-right">
+                                    <h2>CONTROL SWITCHES</h2>
+                                    <p>Tactile slide toggles for Power & Sound</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="left-annotations" style="display: none">
+                            <div class="anno-group group-antenna">
+                                <div class="text-horizontal">
+                                    <h2>TELESCOPIC ANTENNA</h2>
+                                    <p>Retractable chrome / Over-the-air signal</p>
+                                </div>
+                                <div class="line-straight antenna-line"></div>
+                                <div class="highlight highlight-antenna"></div>
+                            </div>
+
+                            <div class="anno-group group-io">
+                                <div class="highlight highlight-io"></div>
+                                <div class="line-diagonal io-line"></div>
+                                <div class="text-vertical-right">
+                                    <h2>EXTERNAL I/O</h2>
+                                    <p>3.5mm audio out & 6V DC power input</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="info-toggle-btn" class="btn-ui btn-icon btn-info">i</button>
+                <button class="btn-ui btn-icon btn-video">&#9658;</button>
+
+                <div id="video-overlay">
+                    <iframe
+                        id="main-video"
+                        src="https://www.youtube.com/embed/eRUOuQanSDU"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="specs-section">
+            <table class="specs-table">
+                <tbody>
+                    <tr>
+                        <td rowspan="2" class="col-category cat-id">Identification</td>
+                        <td class="col-name top-line line-model">Model / Reference</td>
+                        <td class="col-value top-line line-model">FD-210 (First Edition)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-date">Release date</td>
+                        <td class="col-value line-date">February 1982</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-physical">Physical & materials</td>
+                        <td class="col-name line-dim">Dimensions (H x W x D)</td>
+                        <td class="col-value line-dim">87 x 198 x 33 mm</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-mass">Mass / Weight</td>
+                        <td class="col-value line-mass">650 grams (with 4x AA batteries)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-housing">Housing Composition</td>
+                        <td class="col-value line-housing">High-impact Grey/Black ABS plastic with chrome details</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-display">Display</td>
+                        <td class="col-name line-panel">Panel type</td>
+                        <td class="col-value line-panel">Flat Cathode-Ray Tube (CRT)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-res">Screen Size</td>
+                        <td class="col-value line-res">2-inch (5 cm) diagonal</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-back">Phosphor Color</td>
+                        <td class="col-value line-back">Monochrome (P4 White Phosphor)</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-hardware">Hardware</td>
+                        <td class="col-name line-proc">Tuner System</td>
+                        <td class="col-value line-proc">Analog VHF (2-13) / UHF (14-69)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-ram">Audio System</td>
+                        <td class="col-value line-ram">Built-in dynamic front-firing speaker</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-hdd">Signal Reception</td>
+                        <td class="col-value line-hdd">Telescopic multi-directional antenna</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" class="col-category cat-interface">Interface</td>
+                        <td class="col-name line-mech">Input Mechanism</td>
+                        <td class="col-value line-mech">Analog tuning/volume dials & slide switches</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-conn">Connection Standard</td>
+                        <td class="col-value line-conn">3.5 mm Jack (Audio) / 6V DC (Power)</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-power">Power</td>
+                        <td class="col-name line-audio">Voltage Input</td>
+                        <td class="col-value line-audio">6V DC (via AC-W1 adapter)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-cell">Cell Type</td>
+                        <td class="col-value line-cell">4x AA Alkaline batteries</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-runtime">Power Consumption</td>
+                        <td class="col-value line-runtime">Approx. 1.8 Watts</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="explore-section">
+            <h3 class="explore-title">Explore Collection</h3>
+            <div class="explore-grid">
+                <a href="apple_camera.html" class="explore-card">
+                    <div class="card-image-wrapper">
+                        <img
+                            src="images/apple_camera/1.png"
+                            alt="Apple QuickTake 100"
+                            style="transform: scale(1.3) translate(10px, -15px)" />
+                    </div>
+                    <div class="card-info">
+                        <h4>Apple QuickTake 100</h4>
+                        <p class="card-year">1994</p>
+                    </div>
+                </a>
+
+                <a href="simple_objects/microsoft_kin_one.html" class="explore-card">
+                    <div class="card-image-wrapper">
+                        <img
+                            src="images/simple_objects/10_microsoft_kin_one/front_10.png"
+                            alt="Microsoft Kin One"
+                            style="transform: scale(1.1)" />
+                    </div>
+                    <div class="card-info">
+                        <h4>Microsoft Kin One</h4>
+                        <p class="card-year">2010</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <script src="scripts/script_sony_watchman.js"></script>
+    </body>
+</html>

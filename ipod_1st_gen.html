@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>IPOD 1ST GEN - Interactive Archive</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
+
+        <style>
+            /* FRONT VIEW SETTINGS */
+            .group-screen {
+                top: 10%;
+                left: -20%;
+            }
+            .highlight-screen {
+                left: 405px;
+                top: -17px;
+                width: 303px;
+                height: 250px;
+                border-radius: 11px;
+                background-color: rgba(0, 168, 255, 0.1);
+            }
+            .left-line {
+                width: 150px;
+                transform: rotate(20deg);
+                position: relative;
+                top: -153px;
+                left: 163px;
+            }
+            .group-screen .text-vertical {
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+                position: relative;
+                top: 53px;
+                left: 176px;
+            }
+            .group-screen h2 {
+                font-size: 66px !important;
+            }
+            .group-screen p {
+                font-size: 20px !important;
+            }
+
+            .group-wheel {
+                top: 55%;
+                right: -25%;
+            }
+            .highlight-wheel {
+                right: 436px;
+                top: -46px;
+                width: 288px;
+                height: 288px;
+                border-radius: 50%;
+                background-color: rgba(0, 168, 255, 0.3);
+            }
+            .right-line {
+                width: 120px;
+                transform: rotate(-30deg);
+                position: relative;
+                top: 38px;
+                left: -55px;
+            }
+            .group-wheel .text-horizontal {
+                position: relative;
+                top: 15px;
+                left: -33px;
+            }
+            .group-wheel h2 {
+                font-size: 32px !important;
+            }
+            .group-wheel p {
+                font-size: 16px !important;
+            }
+
+            /* REAR VIEW SETTINGS */
+            .rear-annotations h2 {
+                font-size: 26px !important;
+            }
+            .rear-annotations p {
+                font-size: 14px !important;
+            }
+
+            .group-hold {
+                top: 30%;
+                left: 15%;
+            }
+            .highlight-hold {
+                width: 94px;
+                height: 58px;
+                border-radius: 12px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 296px;
+                left: 120px;
+            }
+            .hold-line {
+                width: 142px;
+                transform: rotate(50deg);
+                position: relative;
+                top: 138px;
+                left: -39px;
+            }
+            .text-vertical-left {
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+                position: relative;
+                top: -35px;
+                left: 13px;
+            }
+
+            .group-jack {
+                top: 25%;
+                left: 50%;
+                transform: translateX(-50%);
+                flex-direction: column;
+            }
+            .highlight-jack {
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 334px;
+                left: 62px;
+            }
+            .jack-line {
+                width: 3px;
+                height: 269px;
+                position: relative;
+                top: 17px;
+                left: 9px;
+            }
+            .center-text {
+                text-align: center;
+                position: relative;
+                top: -2px;
+                left: 5px;
+            }
+
+            .group-firewire {
+                top: 30%;
+                right: 15%;
+            }
+            .highlight-firewire {
+                width: 94px;
+                height: 54px;
+                border-radius: 10px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 298px;
+                right: 101px;
+            }
+            .firewire-line {
+                width: 142px;
+                transform: rotate(-50deg);
+                position: relative;
+                top: 162px;
+                left: 57px;
+            }
+            .text-vertical-right {
+                writing-mode: vertical-rl;
+                transform: rotate(180deg);
+                position: relative;
+                top: 16px;
+                left: 19px;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="homepage/home.html" class="btn-ui btn-see-more" style="text-decoration: none">GADGETS</a>
+
+        <section class="scroll-track">
+            <div class="sticky-view">
+                <div id="keywords-list">
+                    <div id="product-title">iPod 1st Generation</div>
+                </div>
+
+                <div id="scroll-indicator">
+                    <span>SCROLL</span>
+                    <div class="arrow">↓</div>
+                </div>
+
+                <div class="image-container">
+                    <div id="background-text">
+                        1000 SONGS<br />
+                        IN YOUR POCKET
+                    </div>
+
+                    <img id="sequence-img" src="images/ipod_1st_gen/1.png" alt="iPod Classic First Generation" />
+
+                    <div id="magnifier-lens"></div>
+
+                    <div id="annotations-layer">
+                        <div class="front-annotations">
+                            <div class="anno-group group-screen">
+                                <div class="text-vertical">
+                                    <h2>INNOVATIVE UI</h2>
+                                    <p>Monochrome LCD - 160 x 128 px resolution</p>
+                                </div>
+                                <div class="line-diagonal left-line"></div>
+                                <div class="highlight highlight-screen"></div>
+                            </div>
+
+                            <div class="anno-group group-wheel">
+                                <div class="highlight highlight-wheel"></div>
+                                <div class="line-diagonal right-line"></div>
+                                <div class="text-horizontal">
+                                    <h2>SCROLL WHEEL</h2>
+                                    <p>Mechanical moving part</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="rear-annotations" style="display: none">
+                            <div class="anno-group group-hold">
+                                <div class="text-vertical-left">
+                                    <h2>HOLD SWITCH</h2>
+                                    <p>Mechanical lock / Orange indicator</p>
+                                </div>
+                                <div class="line-diagonal hold-line"></div>
+                                <div class="highlight highlight-hold"></div>
+                            </div>
+
+                            <div class="anno-group group-jack">
+                                <div class="text-horizontal center-text">
+                                    <h2>3.5MM JACK</h2>
+                                    <p>60-mW amplifier output</p>
+                                </div>
+                                <div class="line-straight jack-line"></div>
+                                <div class="highlight highlight-jack"></div>
+                            </div>
+
+                            <div class="anno-group group-firewire">
+                                <div class="highlight highlight-firewire"></div>
+                                <div class="line-diagonal firewire-line"></div>
+                                <div class="text-vertical-right">
+                                    <h2>FAST DATA</h2>
+                                    <p>FireWire 400 - IEEE 1394a</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="info-toggle-btn" class="btn-ui btn-icon btn-info">i</button>
+                <button class="btn-ui btn-icon btn-video">&#9658;</button>
+
+                <div id="video-overlay">
+                    <iframe
+                        id="main-video"
+                        src="https://www.youtube.com/embed/zP7uJO5rwio"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="specs-section">
+            <table class="specs-table">
+                <tbody>
+                    <tr>
+                        <td rowspan="2" class="col-category cat-id">Identification</td>
+                        <td class="col-name top-line line-model">Model / Reference</td>
+                        <td class="col-value top-line line-model">M8541 (EMC 1910)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-date">Release date</td>
+                        <td class="col-value line-date">October 23, 2001</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-physical">Physical & materials</td>
+                        <td class="col-name line-dim">Dimensions (H x W x D)</td>
+                        <td class="col-value line-dim">4.02″ x 2.43″ x 0.78″ (10.2 x 6.2 x 2.0 cm)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-mass">Mass / Weight</td>
+                        <td class="col-value line-mass">6.5 oz (184 grams)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-housing">Housing Composition</td>
+                        <td class="col-value line-housing">
+                            Front: "iBook White" Polycarbonate. Rear: Polished Chrome Stainless Steel
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-display">Display</td>
+                        <td class="col-name line-panel">Panel type</td>
+                        <td class="col-value line-panel">Monochrome Liquid-Crystal Display (LCD)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-res">Resolution / Dot pitch</td>
+                        <td class="col-value line-res">160 x 128 pixels; 0.24 mm dot pitch</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-back">Backlight</td>
+                        <td class="col-value line-back">High-intensity white LED</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-hardware">Hardware</td>
+                        <td class="col-name line-proc">Processor (SoC)</td>
+                        <td class="col-value line-proc">Dual ARM 7TDMI @ 90 MHz (PortalPlayer PP5002)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-ram">SDRAM Mem. (Buffer)</td>
+                        <td class="col-value line-ram">32 MB (20-minute skip protection/cache)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-hdd">Storage Drive</td>
+                        <td class="col-value line-hdd">1.8-inch Toshiba HDD; 5 GB (4200 rpm)</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" class="col-category cat-interface">Interface</td>
+                        <td class="col-name line-mech">Input Mechanism</td>
+                        <td class="col-value line-mech">Mechanical Scroll Wheel + 5 tactile buttons</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-conn">Connection Standard</td>
+                        <td class="col-value line-conn">FireWire 400 (IEEE 1394a) - Sync & Charge</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-power">Power</td>
+                        <td class="col-name line-audio">Audio Output</td>
+                        <td class="col-value line-audio">3.5 mm stereo jack; 60-mW amplifier</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-cell">Cell Type</td>
+                        <td class="col-value line-cell">1200 mAh Lithium Polymer</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-runtime">Nominal Runtime</td>
+                        <td class="col-value line-runtime">Up to 10 hours of continuous playback</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        <section class="explore-section">
+            <h3 class="explore-title">Explore Collection</h3>
+            <div class="explore-grid">
+                <a href="simple_objects/apple_ipod_mini.html" class="explore-card">
+                    <div class="card-image-wrapper">
+                        <img
+                            src="images/simple_objects/7_apple_ipod_mini/front_7.png"
+                            alt="Apple iPod mini"
+                            style="transform: scale(1.1)" />
+                    </div>
+                    <div class="card-info">
+                        <h4>Apple iPod mini</h4>
+                        <p class="card-year">2004</p>
+                    </div>
+                </a>
+
+                <a href="simple_objects/sony_nsg_mr1.html" class="explore-card">
+                    <div class="card-image-wrapper">
+                        <img
+                            src="images/simple_objects/1_sony_nsg_mr1/front_1.png"
+                            alt="Sony NSG-MR1"
+                            style="transform: scale(1.1)" />
+                    </div>
+                    <div class="card-info">
+                        <h4>Sony NSG-MR1</h4>
+                        <p class="card-year">2010</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+        <script src="scripts/script_ipod_1st_gen.js"></script>
+    </body>
+</html>

@@ -1,0 +1,568 @@
+/* =========================================
+   RESET & BASE STYLES
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+body {
+    background-color: #ffffff;
+}
+
+/* =========================================
+   SCROLL & STICKY VIEW
+   ========================================= */
+.scroll-track {
+    height: 400vh;
+    position: relative;
+}
+
+.sticky-view {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.image-container {
+    position: relative;
+    height: 80vh;
+    width: 100%; /* <-- KEY 1: Force container to take full width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: crosshair;
+    z-index: 2;
+}
+
+#sequence-img {
+    max-height: 100%; /* <-- KEY 2: Change 'height' to 'max-height' */
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+/* =========================================
+   MAGNIFIER LENS (12.5x Zoom)
+   ========================================= */
+#magnifier-lens {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 2px solid #00a8ff;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    background-size: 1250%;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 5;
+}
+
+/* =========================================
+   UI BUTTONS (i, Play & See More)
+   ========================================= */
+.btn-ui {
+    position: absolute;
+    background-color: #ffffff;
+    border: 2px solid #00a8ff;
+    color: #000000;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.btn-ui:hover {
+    background-color: #00a8ff;
+    color: #ffffff;
+}
+
+.btn-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 22px;
+}
+
+.btn-info {
+    bottom: 47px; /* 🟢 Increased value from 40px to 48px */
+    left: 40px;
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.btn-video {
+    bottom: 47px; /* 🟢 Increased value from 40px to 48px */
+    right: 40px;
+    padding-left: 4px;
+}
+
+.btn-see-more {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    padding: 10px 24px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 500;
+    z-index: 999;
+}
+
+.btn-info.active {
+    background-color: #00a8ff;
+    color: #ffffff;
+}
+.btn-info.active::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: #ffffff;
+    transform: rotate(45deg);
+}
+
+/* =========================================
+   ANNOTATIONS LAYER BASE STYLES
+   ========================================= */
+#annotations-layer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    /* 1. REFERENCE SIZE (Original canvas) */
+    /* Set 1400x800 as standard for scaling */
+    width: 783px;
+    height: 783px;
+
+    /* 2. THE MAGIC: Perfect centering and dynamic scaling */
+    transform: translate(-50%, -50%) scale(var(--scale, 1));
+    transform-origin: center;
+
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 4;
+}
+#annotations-layer.show {
+    opacity: 1;
+}
+
+.anno-group {
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+.anno-group h2 {
+    font-weight: 900;
+    color: #000;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+}
+.anno-group p {
+    font-style: normal;
+    color: #000;
+}
+
+.highlight {
+    border: 3px solid #00a8ff;
+    position: absolute;
+}
+.line-diagonal,
+.line-straight {
+    background-color: #00a8ff;
+    height: 3px;
+}
+
+/* =================================================================
+   TECHNICAL SPECIFICATIONS TABLE
+   ================================================================= */
+.specs-section {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    padding: 100px 20px 100px 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.specs-table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 1136px;
+    font-size: 14px;
+    color: #000000;
+}
+
+.specs-table td {
+    padding: 16px 20px;
+    vertical-align: middle;
+    position: relative;
+    border-bottom: none !important;
+}
+
+/* Typography Panel */
+.col-category {
+    font-weight: normal;
+    width: 20%;
+    text-align: left;
+}
+.col-name {
+    width: 35%;
+    font-weight: bold;
+}
+.col-value {
+    width: 45%;
+    font-weight: normal;
+}
+
+/* Line Length Control (After Method) */
+.col-name::after,
+.col-value::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    background-color: #00a8ff;
+}
+.col-name::after {
+    right: 0;
+}
+.col-value::after {
+    left: 0;
+}
+.top-line {
+    border-top: 2px solid #00a8ff !important;
+}
+
+/* Individual Line Lengths */
+.line-model.col-name::after { width: 130%; }
+.line-model.col-value::after { width: 100%; }
+.line-dim.col-name::after { width: 143%; }
+.line-dim.col-value::after { width: 100%; }
+.line-panel.col-name::after { width: 123%; }
+.line-panel.col-value::after { width: 100%; }
+.line-proc.col-name::after { width: 127%; }
+.line-proc.col-value::after { width: 100%; }
+.line-mech.col-name::after { width: 125%; }
+.line-mech.col-value::after { width: 100%; }
+.line-cell.col-name::after { width: 121%; }
+.line-cell.col-value::after { width: 100%; }
+
+/* Default lengths for other lines */
+.line-date.col-name::after,
+.line-date.col-value::after,
+.line-mass.col-name::after,
+.line-mass.col-value::after,
+.line-housing.col-name::after,
+.line-housing.col-value::after,
+.line-res.col-name::after,
+.line-res.col-value::after,
+.line-back.col-name::after,
+.line-back.col-value::after,
+.line-ram.col-name::after,
+.line-ram.col-value::after,
+.line-hdd.col-name::after,
+.line-hdd.col-value::after,
+.line-conn.col-name::after,
+.line-conn.col-value::after,
+.line-audio.col-name::after,
+.line-audio.col-value::after,
+.line-runtime.col-name::after,
+.line-runtime.col-value::after {
+    width: 100%;
+}
+
+/* Category Positioning */
+.cat-id { transform: translate(89px, -21px); }
+.cat-physical { transform: translate(38px, -46px); }
+.cat-display { transform: translate(115px, -46px); }
+.cat-hardware { transform: translate(100px, -45px); }
+.cat-interface { transform: translate(107px, -22px); }
+.cat-power { transform: translate(125px, 1px); }
+
+/* =========================================
+   SCROLL KEYWORDS & PROMPT
+   ========================================= */
+#keywords-list {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    z-index: 5;
+    pointer-events: none; /* Allows clicking "through" the words */
+}
+
+.keyword {
+    font-size: 11px;
+    font-weight: bold;
+    font-style: italic;
+    color: #000;
+    text-transform: capitalize;
+    opacity: 0;
+    transform: translateX(-20px);
+    filter: blur(5px);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.keyword.visible {
+    opacity: 1;
+    transform: translateX(0);
+    filter: blur(0);
+}
+
+#scroll-prompt {
+    font-size: 24px;
+    font-weight: 900;
+    color: #00a8ff;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease,
+        filter 0.5s ease;
+    animation: pulsePrompt 2s infinite;
+}
+#scroll-prompt.hidden {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(-20px);
+    pointer-events: none;
+}
+
+@keyframes pulsePrompt {
+    0%,
+    100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+/* =========================================
+   VIDEO OVERLAY (Glassmorphism Effect)
+   ========================================= */
+#video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    /* 1. Remove opaque black background and set nearly transparent one */
+    background-color: rgba(255, 255, 255, 0.1);
+
+    /* 2. Add blur to background */
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px); /* Ensures functionality in Safari/Apple */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 90;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+#video-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+#main-video {
+    width: 80%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    border-radius: 8px;
+    background-color: #000;
+    border: none; /* 🟢 Add this line */
+}
+
+.btn-video.active {
+    background-color: #00a8ff;
+    color: #ffffff;
+    font-size: 26px;
+    padding-left: 0;
+    z-index: 110;
+}
+
+/* =========================================
+   PRODUCT TITLE (Static)
+   ========================================= */
+#product-title {
+    font-family: 'Doto', sans-serif;
+    font-size: 75px; 
+    font-weight: 900; 
+    color: #00a8ff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: -17px;
+}
+
+/* =========================================
+   SCROLL INDICATOR (Animated & Background)
+   ========================================= */
+/* =========================================
+   SCROLL INDICATOR (Animated & Background)
+   ========================================= */
+#scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    color: #00a8ff;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    z-index: 1; /* Stays in the deepest layer */
+}
+
+#scroll-indicator .arrow {
+    font-size: 20px;
+    animation: bounceArrow 2s ease-in-out infinite;
+}
+
+@keyframes bounceArrow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(10px);
+    }
+}
+
+/* =========================================
+   GIANT BACKGROUND TEXT
+   ========================================= */
+#background-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    font-family: 'Doto', sans-serif;
+    font-size: 10vw;
+    font-weight: 900;
+    color: #000000;
+    opacity: 0.15;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1;
+    z-index: 0;
+    pointer-events: none;
+    transition: filter 0.4s ease;
+}
+
+/* CLASS THAT APPLIES BLUR (Without darkening) */
+#background-text.blurred {
+    filter: blur(15px); /* A stronger blur looks better for large text */
+}
+
+/* Ensure image is above text */
+#sequence-img {
+    position: relative;
+    z-index: 1;
+}
+
+/* =========================================
+   EXPLORE COLLECTION SECTION
+   ========================================= */
+.explore-section {
+    background-color: #ffffff;
+    padding: 20px 20px 100px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.explore-title {
+    font-family: 'Doto', sans-serif;
+    color: #00a8ff;
+    font-size: 24px; 
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    width: 100%;
+    max-width: 1136px; 
+    text-align: left;
+    border-bottom: 2px solid #000000;
+    padding-bottom: 10px;
+}
+
+.explore-grid {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    max-width: 1136px;
+    justify-content: space-between;
+}
+
+.explore-card {
+    flex: 1;
+    text-decoration: none;
+    color: #000000;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Hover Effect */
+.explore-card:hover {  
+    transform: translateY(-5px);
+}
+
+.card-image-wrapper {
+    background-color: #f8f9fa; /* Subtle gray for volume */
+    padding: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.explore-card:hover .card-image-wrapper {
+    border: 2px solid #00a8ff;
+}
+
+.card-image-wrapper img {
+    width: 100%;
+    max-width: 250px; /* Max size to prevent giant images */
+    height: 200px;
+    object-fit: contain;
+    mix-blend-mode: multiply; /* Design trick: blends white photo background with gray */
+}
+
+.card-info {
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.explore-card:hover .card-info {
+    border-bottom: 2px solid #00a8ff;
+}
+
+.card-info h4 { font-size: 16px; font-weight: bold; margin: 0; }
+.card-year { font-size: 14px; color: #00a8ff; font-weight: bold; margin: 0; }

@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GADGET ARCHIVE</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet" />
+
+        <link rel="stylesheet" href="home_style.css" />
+    </head>
+    <body>
+        <header class="main-header">
+            <h1 class="home-title">VINTAGE TECH COLLECTION</h1>
+        </header>
+
+        <section class="collection-section">
+            <div class="collection-grid">
+                <a href="../apple_camera.html" class="grid-item">
+                    <img src="images/apple_camera.png" alt="" />
+                    <span class="item-label">QUICKTAKE</span>
+                </a>
+                <a href="../emate_300.html" class="grid-item">
+                    <img src="images/emate_300.png" alt="" />
+                    <span class="item-label">EMATE 300</span>
+                </a>
+                <a href="../ipod_1st_gen.html" class="grid-item">
+                    <img src="images/ipod_1st_gen.png" alt="" />
+                    <span class="item-label">IPOD 1G</span>
+                </a>
+                <a href="../olpc_xo1.html" class="grid-item">
+                    <img src="images/olpc.png" alt="" />
+                    <span class="item-label">OLPC XO-1</span>
+                </a>
+                <a href="../sony_watchman.html" class="grid-item">
+                    <img src="images/sony_watchman.png" alt="" />
+                    <span class="item-label">WATCHMAN</span>
+                </a>
+
+                <a href="../simple_objects/sony_nsg_mr1.html" class="grid-item">
+                    <img src="images/sony_nsg_mr1.png" alt="" />
+                    <span class="item-label">NSG-MR1</span>
+                </a>
+                <a href="../simple_objects/samsung_sgh_a167.html" class="grid-item">
+                    <img src="images/samsung_sgh.png" alt="" />
+                    <span class="item-label">SGH-A167</span>
+                </a>
+                <a href="../simple_objects/apple_mouse_iic.html" class="grid-item">
+                    <img src="images/apple_mouse.png" alt="" />
+                    <span class="item-label">MOUSE IIc</span>
+                </a>
+                <a href="../simple_objects/apple_newton.html" class="grid-item">
+                    <img src="images/apple_newton.png" alt="" />
+                    <span class="item-label">NEWTON</span>
+                </a>
+                <a href="../simple_objects/iphone_4.html" class="grid-item">
+                    <img src="images/iphone_4.png" alt="" />
+                    <span class="item-label">IPHONE 4</span>
+                </a>
+                <a href="../simple_objects/iphone_2g.html" class="grid-item">
+                    <img src="images/iphone_2g.png" alt="" />
+                    <span class="item-label">IPHONE 2G</span>
+                </a>
+                <a href="../simple_objects/apple_ipod_mini.html" class="grid-item">
+                    <img src="images/apple_ipod_mini.png" alt="" />
+                    <span class="item-label">IPOD MINI</span>
+                </a>
+                <a href="../simple_objects/ipod_shuffle_2g.html" class="grid-item">
+                    <img src="images/ipod_shuffle_2g.png" alt="" />
+                    <span class="item-label">SHUFFLE 2G</span>
+                </a>
+                <a href="../simple_objects/ipod_touch_4g.html" class="grid-item">
+                    <img src="images/ipod_touch_4gen.png" alt="" />
+                    <span class="item-label">TOUCH 4G</span>
+                </a>
+                <a href="../simple_objects/microsoft_kin_one.html" class="grid-item">
+                    <img src="images/microsoft_kin_one.png" alt="" />
+                    <span class="item-label">KIN ONE</span>
+                </a>
+                <a href="../simple_objects/nextbit_robin.html" class="grid-item">
+                    <img src="images/nextbit_robin.png" alt="" />
+                    <span class="item-label">ROBIN</span>
+                </a>
+                <a href="../simple_objects/ipod_shuffle_1g.html" class="grid-item">
+                    <img src="images/ipod_shuffle_1g.png" alt="" />
+                    <span class="item-label">SHUFFLE 1G</span>
+                </a>
+                <a href="../simple_objects/apple_m7332.html" class="grid-item">
+                    <img src="images/apple_m7332.png" alt="" />
+                    <span class="item-label">M7332 YOYO</span>
+                </a>
+                <a href="../simple_objects/ipod_shuffle_3g.html" class="grid-item">
+                    <img src="images/ipod_shuffle_3g.png" alt="" />
+                    <span class="item-label">SHUFFLE 3G</span>
+                </a>
+                <a href="../simple_objects/apple_mouse_m4848.html" class="grid-item">
+                    <img src="images/apple_mouse_m4848.png" alt="" />
+                    <span class="item-label">MOUSE M4848</span>
+                </a>
+            </div>
+        </section>
+
+        <div id="about-overlay" class="about-overlay">
+            <div class="about-modal">
+                <h2 class="modal-title">MATT'S COLLECTION</h2>
+                <p class="modal-text">
+                    This collection is a technical study of transitional-era hardware. It focuses on the
+                    <strong>structural honesty</strong>, material tolerances, and mechanical intuition of devices from a
+                    time when tactile, physical components defined the user experience.
+                </p>
+                <p class="modal-text">
+                    <strong>Navigation Protocol:</strong><br />
+                    Select a specimen from the grid to enter its diagnostic view. <strong>Scroll</strong> to inspect
+                    internal layouts and orthogonal views. Hover over the canvas to use the
+                    <strong>magnifier tool</strong> for surface-level analysis, and access the data tables for precise
+                    material compositions and hardware schematics.
+                </p>
+            </div>
+        </div>
+
+        <div class="about-container">
+            <button id="about-toggle-btn" class="btn-about">WHAT IS THIS?</button>
+        </div>
+
+        <script>
+            const aboutBtn = document.getElementById("about-toggle-btn");
+            const aboutOverlay = document.getElementById("about-overlay");
+
+            aboutBtn.addEventListener("click", () => {
+                const isActive = aboutOverlay.classList.contains("show");
+
+                if (!isActive) {
+                    // Abrir Pop-up
+                    aboutOverlay.classList.add("show");
+                    aboutBtn.classList.add("active");
+                    aboutBtn.innerHTML = "&#10006;"; // Símbolo de la X
+                } else {
+                    // Cerrar Pop-up
+                    aboutOverlay.classList.remove("show");
+                    aboutBtn.classList.remove("active");
+                    aboutBtn.innerHTML = "WHAT IS THIS?"; // Vuelve al texto original
+                }
+            });
+
+            // Cerrar también si el usuario hace click en lo borroso del fondo
+            aboutOverlay.addEventListener("click", (e) => {
+                if (e.target === aboutOverlay) {
+                    aboutBtn.click();
+                }
+            });
+        </script>
+    </body>
+</html>

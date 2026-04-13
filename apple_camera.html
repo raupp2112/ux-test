@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>APPLE QUICKTAKE 100 - Interactive Archive</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Doto:wght@100..900&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="style.css" />
+
+        <style>
+            .image-container {
+                height: 75vh;
+            }
+            #sequence-img {
+                height: 90%;
+            }
+
+            /* APPLE CAMERA - FRAME 7 (BACK VIEW) */
+            .group-viewfinder {
+                top: 18%;
+                left: 84%;
+            }
+            .highlight-viewfinder {
+                width: 59px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 259px;
+                left: -265px;
+            }
+            .viewfinder-line {
+                width: 220px;
+                transform: rotate(0deg);
+                position: relative;
+                top: 128px;
+                left: -255px;
+            }
+            .group-viewfinder .text-vertical {
+                writing-mode: vertical-rl;
+                transform: rotate(0deg);
+                position: relative;
+                top: 10px;
+                left: 20px;
+            }
+
+            .group-battery-door {
+                width: 523px;
+                top: 63%;
+                right: 36%;
+            }
+            .highlight-battery-door {
+                width: 147px;
+                height: 228px;
+                border-radius: 10px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -101px;
+                right: 222px;
+            }
+            .battery-door-line {
+                width: 40px;
+                position: relative;
+                top: 45px;
+                right: -116px;
+            }
+            .group-battery-door .text-horizontal {
+                position: relative;
+                top: 30px;
+                right: 110px;
+                transform: rotate(-90deg);
+            }
+
+            /* APPLE CAMERA - FRAME 10 (SIDE VIEW) */
+            .group-serial-port {
+                top: 54%;
+                left: 1%;
+                transform: rotate(-90deg);
+            }
+            .highlight-serial-port {
+                width: 214px;
+                height: 77px;
+                border-radius: 10px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 135px;
+                left: 129px;
+            }
+            .serial-port-line {
+                width: 94px;
+                position: relative;
+                top: 74px;
+                left: -298px;
+                transform: rotate(-126deg);
+            }
+
+            /* APPLE CAMERA - FRAME 14 & 26 (FRONT VIEW) */
+            .group-lens {
+                top: 55%;
+                left: 15%;
+            }
+            .highlight-lens {
+                width: 110px;
+                height: 110px;
+                border-radius: 50%;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 149px;
+                left: 194px;
+            }
+            .lens-line {
+                width: 174px;
+                transform: rotate(75deg);
+                position: relative;
+                top: -72px;
+                left: 88px;
+            }
+            .group-lens .text-vertical-left {
+                writing-mode: vertical-rl;
+                transform: rotate(270deg);
+                position: relative;
+                top: -191px;
+                left: 299px;
+            }
+
+            .group-flash {
+                top: 65%;
+                right: -17%;
+                transform: rotate(-90deg);
+            }
+            .highlight-flash {
+                width: 75px;
+                height: 123px;
+                border-radius: 10px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: -174px;
+                right: 218px;
+            }
+            .flash-line {
+                width: 56px;
+                transform: rotate(-113deg);
+                position: relative;
+                top: -53px;
+                right: -14px;
+            }
+
+            /* APPLE CAMERA - FRAME 20 (TOP VIEW) */
+            .group-shutter {
+                top: 60%;
+                left: 15%;
+            }
+            .highlight-shutter {
+                width: 140px;
+                height: 140px;
+                border-radius: 50%;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 110px;
+                left: 129px;
+            }
+            .shutter-line {
+                width: 133px;
+                transform: rotate(-15deg);
+                position: relative;
+                top: 181px;
+                left: -302px;
+            }
+            .group-shutter .text-horizontal {
+                position: relative;
+                top: 60px;
+                left: -187px;
+                transform: rotate(-90deg);
+            }
+
+            .group-status-lcd {
+                top: 60%;
+                right: 15%;
+            }
+            .highlight-status-lcd {
+                width: 78px;
+                height: 95px;
+                border-radius: 10px;
+                background-color: rgba(0, 168, 255, 0.2);
+                top: 122px;
+                right: 126px;
+            }
+            .status-lcd-line {
+                width: 162px;
+                transform: rotate(-90deg);
+                position: relative;
+                top: -124px;
+                right: 40px;
+            }
+            .group-status-lcd .text-vertical-right {
+                writing-mode: vertical-rl;
+                transform: rotate(-90deg);
+                position: relative;
+                top: -240px;
+                right: 306px;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="homepage/home.html" class="btn-ui btn-see-more" style="text-decoration: none">GADGETS</a>
+
+        <section class="scroll-track">
+            <div class="sticky-view">
+                <div id="keywords-list">
+                    <div id="product-title">Apple QuickTake 100</div>
+                </div>
+
+                <div id="scroll-indicator">
+                    <span>SCROLL</span>
+                    <div class="arrow">↓</div>
+                </div>
+
+                <div class="image-container">
+                    <div id="background-text" style="font-size: 16vw">
+                        DIGITAL <br />
+                        PIONEER
+                    </div>
+
+                    <img id="sequence-img" src="images/apple_camera/1.png" alt="Apple QuickTake 100" />
+
+                    <div id="magnifier-lens"></div>
+
+                    <div id="annotations-layer">
+                        <div class="frame-7-annotations" style="display: none">
+                            <div class="anno-group group-viewfinder">
+                                <div class="text-vertical">
+                                    <h2>OPTICAL VIEWFINDER</h2>
+                                    <p>Standard reverse-Galilean / Centered framing</p>
+                                </div>
+                                <div class="line-diagonal viewfinder-line"></div>
+                                <div class="highlight highlight-viewfinder"></div>
+                            </div>
+
+                            <div class="anno-group group-battery-door">
+                                <div class="highlight highlight-battery-door"></div>
+                                <div class="line-straight battery-door-line"></div>
+                                <div class="text-horizontal">
+                                    <h2>POWER COMPARTMENT</h2>
+                                    <p>Holds 3x AA Batteries / Side sliding door</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="frame-10-annotations" style="display: none">
+                            <div class="anno-group group-serial-port">
+                                <div class="text-horizontal">
+                                    <h2>MACINTOSH SERIAL</h2>
+                                    <p>Hidden connector / 8-pin mini-DIN for Mac transfer</p>
+                                </div>
+                                <div class="line-straight serial-port-line"></div>
+                                <div class="highlight highlight-serial-port"></div>
+                            </div>
+                        </div>
+
+                        <div class="frame-14-annotations" style="display: none">
+                            <div class="anno-group group-lens">
+                                <div class="text-vertical-left">
+                                    <h2>8MM FIXED LENS</h2>
+                                    <p>50mm equivalent / f/2.8 to f/16 aperture</p>
+                                </div>
+                                <div class="line-diagonal lens-line"></div>
+                                <div class="highlight highlight-lens"></div>
+                            </div>
+
+                            <div class="anno-group group-flash">
+                                <div class="highlight highlight-flash"></div>
+                                <div class="line-diagonal flash-line"></div>
+                                <div class="text-horizontal">
+                                    <h2>BUILT-IN FLASH</h2>
+                                    <p>Auto-flash / Red-eye reduction mode</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="frame-20-annotations" style="display: none">
+                            <div class="anno-group group-shutter">
+                                <div class="text-horizontal">
+                                    <h2>SHUTTER BUTTON</h2>
+                                    <p>Ergonomic trigger / "Binocular" grip design</p>
+                                </div>
+                                <div class="line-diagonal shutter-line"></div>
+                                <div class="highlight highlight-shutter"></div>
+                            </div>
+
+                            <div class="anno-group group-status-lcd">
+                                <div class="highlight highlight-status-lcd"></div>
+                                <div class="line-diagonal status-lcd-line"></div>
+                                <div class="text-vertical-right">
+                                    <h2>STATUS LCD</h2>
+                                    <p>Displays battery, flash mode & shots remaining</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="frame-26-annotations" style="display: none">
+                            <div class="anno-group group-lens">
+                                <div class="text-vertical-left">
+                                    <h2>8MM FIXED LENS</h2>
+                                    <p>50mm equivalent / f/2.8 to f/16 aperture</p>
+                                </div>
+                                <div class="line-diagonal lens-line"></div>
+                                <div class="highlight highlight-lens"></div>
+                            </div>
+
+                            <div class="anno-group group-flash">
+                                <div class="highlight highlight-flash"></div>
+                                <div class="line-diagonal flash-line"></div>
+                                <div class="text-horizontal">
+                                    <h2>BUILT-IN FLASH</h2>
+                                    <p>Auto-flash / Red-eye reduction mode</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button id="info-toggle-btn" class="btn-ui btn-icon btn-info">i</button>
+                <button class="btn-ui btn-icon btn-video">&#9658;</button>
+
+                <div id="video-overlay">
+                    <iframe
+                        id="main-video"
+                        src="https://www.youtube.com/embed/g2e6sM1Vpq4"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section class="specs-section">
+            <table class="specs-table">
+                <tbody>
+                    <tr>
+                        <td rowspan="2" class="col-category cat-id">Identification</td>
+                        <td class="col-name top-line line-model">Model / Reference</td>
+                        <td class="col-value top-line line-model">Apple QuickTake 100 (Built by Kodak)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-date">Release date</td>
+                        <td class="col-value line-date">February 1994</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-physical">Physical & materials</td>
+                        <td class="col-name line-dim">Dimensions (H x W x D)</td>
+                        <td class="col-value line-dim">2.2 x 5.5 x 6.0 in (5.6 x 14 x 15.2 cm)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-mass">Mass / Weight</td>
+                        <td class="col-value line-mass">1.0 lbs (0.45 kg)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-housing">Housing Composition</td>
+                        <td class="col-value line-housing">High-impact grey ABS plastic / Binocular styling</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-display">Optics & Sensor</td>
+                        <td class="col-name line-panel">Sensor Type</td>
+                        <td class="col-value line-panel">Charge-Coupled Device (CCD)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-res">Resolution</td>
+                        <td class="col-value line-res">640 x 480 (High) / 320 x 240 (Standard)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-back">Lens</td>
+                        <td class="col-value line-back">8mm (50mm equivalent) / Fixed focus</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="3" class="col-category cat-hardware">Hardware</td>
+                        <td class="col-name line-proc">Storage Memory</td>
+                        <td class="col-value line-proc">1 MB Flash EPROM (Non-removable)</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-ram">Capacity</td>
+                        <td class="col-value line-ram">8 High-Res photos OR 32 Standard-Res photos</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-hdd">Image Format</td>
+                        <td class="col-value line-hdd">PICT (Requires QuickTake software)</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" class="col-category cat-interface">Interface</td>
+                        <td class="col-name line-mech">Displays</td>
+                        <td class="col-value line-mech">Monochrome Status LCD / Optical Viewfinder</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-conn">Connectivity</td>
+                        <td class="col-value line-conn">RS-422 Serial (Apple 8-pin mini-DIN)</td>
+                    </tr>
+
+                    <tr>
+                        <td rowspan="2" class="col-category cat-power">Power</td>
+                        <td class="col-name line-audio">Battery Type</td>
+                        <td class="col-value line-audio">3x AA Alkaline or NiCd batteries</td>
+                    </tr>
+                    <tr>
+                        <td class="col-name line-cell">External Power</td>
+                        <td class="col-value line-cell">Optional 5V DC AC Adapter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="explore-section">
+            <h3 class="explore-title">Explore Collection</h3>
+            <div class="explore-grid">
+                <a href="sony_watchman.html" class="explore-card">
+                    <div class="card-image-wrapper">
+                        <img
+                            src="images/sony_watchman/8.png"
+                            alt="Sony Watchman"
+                            style="transform: scale(2.5) translate(0px, -44px)" />
+                    </div>
+                    <div class="card-info">
+                        <h4>Sony Watchman</h4>
+                        <p class="card-year">1982</p>
+                    </div>
+                </a>
+
+                <a href="simple_objects/samsung_sgh_a167.html" class="explore-card">
+                    <div class="card-image-wrapper">
+                        <img
+                            src="images/simple_objects/2_samsung_sgh/front_2.png"
+                            alt="Samsung SGH-A167"
+                            style="transform: scale(2.5) translate(0px, -44px)" />
+                    </div>
+                    <div class="card-info">
+                        <h4>Samsung SGH-A167</h4>
+                        <p class="card-year">2009</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <script src="scripts/script_apple_camera.js"></script>
+    </body>
+</html>
